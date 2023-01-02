@@ -1,4 +1,6 @@
-### quickSort in Swift -- note the inout parameter and return value of partition subprogram is not right edge of the low part but the pivot
+### quickSort in Swift
+### note the inout parameter 
+### and return value of partition subprogram is not right edge of the low part but the pivot
     
     func quickSort(_ nums: inout [Int], low:Int, high:Int){
 
