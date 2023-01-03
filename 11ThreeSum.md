@@ -126,6 +126,8 @@
         var results:[[Int]] = [[Int]]()
         
         var i:Int = 0
+        
+        //given we have to manually change the value of iterator variable, we cannot use for in loop but while loop
         //if the smallest one is greater than 0, we can exclude it from the case
         while(i<numsNew.count-2 && numsNew[i] <= 0){
             print(i)
