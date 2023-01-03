@@ -76,7 +76,7 @@
           
  
  
- ## two pointers
+ ## two pointers in JAVA
  
     //Runtime: 47 ms, faster than 35.83% of Java online submissions for 3Sum.
     //Memory Usage: 60.1 MB, less than 32.20% of Java online submissions for 3Sum.
@@ -164,3 +164,78 @@
 
         return results
     }
+    
+ ## Solution using Set and Dictionary/HashTable
+    
+    class Solution {
+    func threeSum(_ nums: [Int]) -> [[Int]] {
+        guard nums.count >= 3 else {return [[]]}
+
+        var ngts = Set<Int>()
+        var zeros = [Int]()
+        var ptvs = Set<Int>()
+        var dict:[Int:Int] = [:]
+        var results = [[Int]]()
+
+        for i in nums{
+            dict[i] = dict[i, default:0] + 1
+            if i < 0{
+                ngts.insert(i)
+            }else if i == 0{
+                zeros.append(i)
+            }else{
+                ptvs.insert(i)
+            }
+        }
+
+        if zeros.count >= 3{
+            results.append([0, 0, 0])
+        }
+
+        for n in ngts{
+            //one negative, 0, one positive
+            if dict[0] != nil, dict[-n] != nil {
+                results.append([n, 0, -n])
+            }
+            //two negative one positive
+            for n2 in ngts{
+                if n2 < n {continue}
+
+                if n == n2{
+                    if dict[n] != nil, dict[n]! > 1{
+                        //do nothing
+                    }else{
+                        continue
+                    }
+                }
+
+                if dict[-n-n2] != nil{
+                    results.append([n, n2, -n-n2])
+                }
+            }
+            //one negative and two positive
+            for p in ptvs{
+                let diff = n+p
+                if n+p == -p{
+                    if dict[p] != nil, dict[p]! > 1{
+                        results.append([n, p, p])
+                    }else{
+                        continue
+                    }
+                }
+                else{
+                    if -n-p < p {continue}
+
+                    if dict[-n-p] != nil{
+                        results.append([n, p, -p-n])
+                    }
+                }
+
+            }
+        }
+        
+
+        return results
+          }
+          }
+    
