@@ -8,6 +8,6 @@ Hence, take consider into Set and HashTable more often
   * [Stack](DataStructure/Stack.md)
   * [Heap](DataStructure/Heap.md)
   
-- [Basic Algorithm in Swift]
-  * [QuickSort]
+- [Basic Algorithm in Swift](algorithm/)
+  * [QuickSort](algorithm/quickSort.md)
   
