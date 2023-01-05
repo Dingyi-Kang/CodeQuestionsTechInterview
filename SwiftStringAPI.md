@@ -18,4 +18,3 @@ post link: https://stackoverflow.com/questions/31415242/single-quotes-with-chara
 <img width="684" alt="image" src="https://user-images.githubusercontent.com/81428296/210304521-a87837ac-5453-441b-9fe6-08cdbf1aaa93.png">
 
 <img width="305" alt="image" src="https://user-images.githubusercontent.com/81428296/210305093-a49325af-870c-4aa9-99bf-2bd5b7b5705b.png">
-<img width="305" alt="image" src="https://user-images.githubusercontent.com/81428296/210305371-525cac1c-6be2-4a38-8358-fdeb3c2b9bd0.png">
