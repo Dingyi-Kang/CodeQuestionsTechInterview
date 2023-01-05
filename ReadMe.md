@@ -6,7 +6,7 @@ Hence, take consider into Set and HashTable more often
 
 - [Basic Data Structure in Swift](DataStructure/)
   * [Stack](DataStructure/Stack.md)
-  * [Heap](DataStructure/Heap.md)
+  * [Heap/Priority Queue](DataStructure/Heap.md)
   
 - [Basic Algorithm in Swift](algorithm/)
   * [QuickSort](algorithm/quickSort.md)
