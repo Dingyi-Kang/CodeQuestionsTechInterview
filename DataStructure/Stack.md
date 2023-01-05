@@ -1,46 +1,4 @@
-## this is my initial attempt 
-## turned out that not necessary to create a struct of stack which in essence is array used in a certain way
-## and there is a smarter way to iterate throught the character in string
-
-      class Solution {
-          func isValid(_ s: String) -> Bool {
-
-              guard s.count % 2 == 0 else{return false}
-
-              var stack = Stack()
-
-              for i in 0..<s.count{
-                  let c:Character = s[s.index(s.startIndex, offsetBy: i)]
-
-                  if c == "(" || c == "{" || c == "[" {
-                      stack.push(c)
-                  }
-                  else if c == ")" {
-                      if let a = stack.pop(), a == "(" {
-                          //do nothing
-                      }else{ return false }
-                  }
-                  else if c == "}" {
-                      if let a = stack.pop(), a == "{" {
-                          //do nothing
-                      }else{ return false }
-                  }
-                  else if c == "]" {
-                      if let a = stack.pop(), a == "[" {
-                          //do nothing
-                      }else{ return false }
-                  }
-              }
-              if stack.pop() == nil {
-                  return true
-              }else{
-                  return false
-              }
-
-          }
-      }
-
-
+## initial attempt
       struct Stack {
 
           private var items:[Character] = []
@@ -60,7 +18,7 @@
       }
  
  
- ## improved version with "stack"
+ ## improved version with "stack" -- mimic stack's behavior using APIs of Array
      class Solution {
         func isValid(_ s: String) -> Bool {
 
