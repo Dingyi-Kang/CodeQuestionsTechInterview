@@ -70,6 +70,24 @@ great link: https://medium.com/devslopes-blog/swift-data-structures-heap-e3fbbda
               index = getParentIndex(index)
         }
     }
+    
+    mutating public func poll() -> Int {
+      if items.count != 0 {
+          let item = items[0]
+          items[0] = items[items.count - 1]
+          heapifyDown()
+          items.removeLast()
+          return item
+      } else {
+          fatalError()
+      }
+    }
+    
+    mutating public func add(_ item: Int) {
+        items.append(item)
+        heapifyUp()
+    }
+    
     }
     
 ## my first attemp which is worse than above
@@ -79,6 +97,8 @@ great link: https://medium.com/devslopes-blog/swift-data-structures-heap-e3fbbda
 ## 3. has extra functions to get node based on the index is also good
 ## 4. Swap function is very helpful
 ## 5. heapifyDown is most difficult for you
+## !6. mutating prefix for all method which will change ???
+## 7. don't forget poll and add method, and heapifyUp and heapifyDown are private
     struct MinHeap{
 
     private var items = [ListNode]()
@@ -146,4 +166,7 @@ great link: https://medium.com/devslopes-blog/swift-data-structures-heap-e3fbbda
     }
 
     }
+
+
+## My second try
 
