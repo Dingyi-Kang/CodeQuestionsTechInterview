@@ -99,6 +99,7 @@ great link: https://medium.com/devslopes-blog/swift-data-structures-heap-e3fbbda
 ## 5. heapifyDown is most difficult for you
 ## !6. mutating prefix for all method which will change ???
 ## 7. don't forget poll and add method, and heapifyUp and heapifyDown are private
+# !!!!! A big mistake I made is I used -- "parendIndex = (i-1)%2" it is wrong. It should be (i-1)/2
     struct MinHeap{
 
     private var items = [ListNode]()
@@ -179,7 +180,8 @@ great link: https://medium.com/devslopes-blog/swift-data-structures-heap-e3fbbda
             return 2*i+2
         }
         private func getParentIndex(_ i:Int) -> Int{
-            return (i-1)%2
+            //WRONG!: return (i-1)%2
+            return (i-1)/2
         }
         private func hasLeftChild(_ i: Int) -> Bool{
             return 2*i+1 < items.count
@@ -188,7 +190,7 @@ great link: https://medium.com/devslopes-blog/swift-data-structures-heap-e3fbbda
             return 2*i+2 < items.count
         }
         private func hasParent(_ i: Int) -> Bool{
-            return (i-1)%2 >= 0
+            return (i-1)/2 >= 0
         }
         private func getLeftChildValue(_ i: Int) -> Int{
             return items[2*i+1].val
@@ -197,7 +199,7 @@ great link: https://medium.com/devslopes-blog/swift-data-structures-heap-e3fbbda
             return items[2*i+2].val
         }
         private func getParentValue(_ i: Int) -> Int{
-            return items[(i-1)%2].val
+            return items[(i-1)/2].val
         }
         mutating private func swap(_ i:Int, _ j:Int){
             let m = items[i]
