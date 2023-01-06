@@ -168,7 +168,7 @@ great link: https://medium.com/devslopes-blog/swift-data-structures-heap-e3fbbda
     }
 
 
-## My second try succeed and is customized for the problem
+## My second try succeeded and is customized for the problem
     struct MinHeap{
         private var items = [ListNode]()
 
