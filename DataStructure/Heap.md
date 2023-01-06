@@ -169,4 +169,81 @@ great link: https://medium.com/devslopes-blog/swift-data-structures-heap-e3fbbda
 
 
 ## My second try
+    struct MinHeap{
+        private var items = [ListNode]()
 
+        private func getLeftChildIndex(_ i:Int) -> Int{
+            return 2*i+1
+        }
+        private func getRightChildIndex(_ i:Int) -> Int{
+            return 2*i+2
+        }
+        private func getParentIndex(_ i:Int) -> Int{
+            return (i-1)%2
+        }
+        private func hasLeftChild(_ i: Int) -> Bool{
+            return 2*i+1 < items.count
+        }
+        private func hasRightChild(_ i: Int) -> Bool{
+            return 2*i+2 < items.count
+        }
+        private func hasParent(_ i: Int) -> Bool{
+            return (i-1)%2 >= 0
+        }
+        private func getLeftChildValue(_ i: Int) -> Int{
+            return items[2*i+1].val
+        }
+        private func getRightChildValue(_ i: Int) -> Int{
+            return items[2*i+2].val
+        }
+        private func getParentValue(_ i: Int) -> Int{
+            return items[(i-1)%2].val
+        }
+        mutating private func swap(_ i:Int, _ j:Int){
+            let m = items[i]
+            items[j] = items[i]
+            items[i] = m
+        }
+        mutating private func heapifyDown(){
+            var currIndex = 0
+            while hasLeftChild(currIndex){
+                var smallerNodeIndex = getLeftChildIndex(currIndex)
+                if hasRightChild(currIndex) && getRightChildValue(currIndex) < items[smallerNodeIndex].val {
+                    smallerNodeIndex = getRightChildIndex(currIndex)
+                }
+
+                if items[currIndex].val < items[smallerNodeIndex].val{
+                    break
+                }else{
+                    swap(currIndex, smallerNodeIndex)
+                    currIndex = smallerNodeIndex
+                }
+            }
+        }
+
+        mutating private func heapifyUp(){
+            var currIndex = items.count - 1
+            while hasParent(currIndex) && items[currIndex].val < getParentValue(currIndex){
+                    swap(currIndex, getParentIndex(currIndex))
+                    currIndex = getParentIndex(currIndex)
+            }
+        }
+
+        public mutating func poll(_ n: ListNode) -> ListNode?{
+            if items.count > 0 {
+                let n = items[0]
+                //do nothign, if items.count == 1
+                swap(0, items.count-1)
+                items.removeLast()
+                heapifyDown()
+                return n
+            }else{
+                return nil
+            }
+        }
+
+        public mutating func add(_ n: ListNode){
+            items.append(n)
+            heapifyUp()
+        }
+    }
