@@ -166,6 +166,81 @@
 
       }
    
-   ## solution 3 -- using divide and conquer
+   ## my solution 3 -- using QuickSort -- partition -- beat over 97% in time
+         class Solution {
+          func mergeKLists(_ lists: [ListNode?]) -> ListNode? { 
+
+              if lists.isEmpty {return nil}
+
+              var arr = [Int]()
+
+              for list in lists{
+                  if let list = list{
+                      var l = list
+                      arr.append(l.val)
+                      while(l.next != nil){
+                          l = l.next!
+                          arr.append(l.val)
+                      }
+                  }
+              }
+
+              if arr.isEmpty {return nil}
+
+              quickSort(0, arr.count-1, &arr)
+
+              var head = ListNode(arr[0])
+
+              if arr.count == 1 {return head}
+
+              var curr = ListNode(arr[1])
+              head.next = curr
+              for i in 2..<arr.count{
+                  let newNode = ListNode(arr[i])
+                  curr.next = newNode
+                  curr = newNode
+              }
+
+              return head
+          }
    
+   ## my solution 4 -- using divide and conquer -- most consie and efficient solution
+   class Solution {
+    func mergeKLists(_ lists: [ListNode?]) -> ListNode? { 
+        
+        if lists.isEmpty {return nil}
+
+        return divide(0, lists.count-1, lists)
+    }
+
+
+    func divide(_ l:Int, _ r:Int, _ lists:[ListNode?])->ListNode?{
+        if l > r {return nil}
+        if l == r {return lists[l]}
+
+        let med = (l+r)/2
+
+        let h1 = divide(l, med, lists)
+        let h2 = divide(med+1, r, lists)
+
+        return merge(h1, h2)
+
+    }
+
+    func merge(_ l:ListNode?, _ r:ListNode?) -> ListNode?{
+
+        if l == nil{return r}
+        else if r == nil {return l}
+
+        if l!.val < r!.val{
+            l!.next = merge(l!.next, r)
+            return l
+        }else{
+            r!.next = merge(l, r!.next)
+            return r
+        }
+
+    }
+
+   }
    
