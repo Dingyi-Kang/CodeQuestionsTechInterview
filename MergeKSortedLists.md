@@ -205,42 +205,42 @@
           }
    
    ## my solution 4 -- using divide and conquer -- most consie and efficient solution
-   class Solution {
-    func mergeKLists(_ lists: [ListNode?]) -> ListNode? { 
-        
-        if lists.isEmpty {return nil}
+      class Solution {
+          func mergeKLists(_ lists: [ListNode?]) -> ListNode? { 
 
-        return divide(0, lists.count-1, lists)
-    }
+              if lists.isEmpty {return nil}
+
+              return divide(0, lists.count-1, lists)
+          }
 
 
-    func divide(_ l:Int, _ r:Int, _ lists:[ListNode?])->ListNode?{
-        if l > r {return nil}
-        if l == r {return lists[l]}
+          func divide(_ l:Int, _ r:Int, _ lists:[ListNode?])->ListNode?{
+              if l > r {return nil}
+              if l == r {return lists[l]}
 
-        let med = (l+r)/2
+              let med = (l+r)/2
 
-        let h1 = divide(l, med, lists)
-        let h2 = divide(med+1, r, lists)
+              let h1 = divide(l, med, lists)
+              let h2 = divide(med+1, r, lists)
 
-        return merge(h1, h2)
+              return merge(h1, h2)
 
-    }
+          }
 
-    func merge(_ l:ListNode?, _ r:ListNode?) -> ListNode?{
+          func merge(_ l:ListNode?, _ r:ListNode?) -> ListNode?{
 
-        if l == nil{return r}
-        else if r == nil {return l}
+              if l == nil{return r}
+              else if r == nil {return l}
 
-        if l!.val < r!.val{
-            l!.next = merge(l!.next, r)
-            return l
-        }else{
-            r!.next = merge(l, r!.next)
-            return r
-        }
+              if l!.val < r!.val{
+                  l!.next = merge(l!.next, r)
+                  return l
+              }else{
+                  r!.next = merge(l, r!.next)
+                  return r
+              }
 
-    }
+          }
 
-   }
+         }
    
