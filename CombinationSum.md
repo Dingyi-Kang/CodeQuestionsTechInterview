@@ -55,32 +55,32 @@
 ### Below is my solution based on the idea
 #### At each recursion, branch into two cases -- using the first element of the candidates at least once in the combination(s) vs not using even once the first element of the candidates in the combination(s)
 
-  class Solution {
-      func combinationSum(_ candidates: [Int], _ target: Int) -> [[Int]] {
+      class Solution {
+          func combinationSum(_ candidates: [Int], _ target: Int) -> [[Int]] {
 
-          if candidates.count == 0 {return []}
+              if candidates.count == 0 {return []}
 
-          var arrs = [[Int]]()
+              var arrs = [[Int]]()
 
-          let i = candidates[0]
+              let i = candidates[0]
 
-          //the cases of using at least one i
-          if i == target{
-              arrs.append([i])
-          }
-          else if target - i > 1 {
-              var lists = combinationSum(candidates, target - i)
-              for k in 0..<lists.count {
-                  lists[k].insert(i, at: 0)
-                  arrs.append(lists[k])
+              //the cases of using at least one i
+              if i == target{
+                  arrs.append([i])
               }
+              else if target - i > 1 {
+                  var lists = combinationSum(candidates, target - i)
+                  for k in 0..<lists.count {
+                      lists[k].insert(i, at: 0)
+                      arrs.append(lists[k])
+                  }
+              }
+
+              //the case of using not even one i
+              var newC = candidates
+              newC.removeFirst()
+              arrs.append(contentsOf: combinationSum(newC, target))
+
+              return arrs
           }
-
-          //the case of using not even one i
-          var newC = candidates
-          newC.removeFirst()
-          arrs.append(contentsOf: combinationSum(newC, target))
-
-          return arrs
       }
-  }
