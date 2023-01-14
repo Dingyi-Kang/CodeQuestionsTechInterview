@@ -1,6 +1,9 @@
 # The reason why the string subscribt and other APIs are so complicated:
 <img width="692" alt="image" src="https://user-images.githubusercontent.com/81428296/212445695-88d16ba9-81dc-4239-a750-8c66da254304.png">
 
+## 0. link of offical document of string
+https://docs.swift.org/swift-book/LanguageGuide/StringsAndCharacters.html
+
 ## 1. get the character at the certain index of string
 <img width="792" alt="image" src="https://user-images.githubusercontent.com/81428296/210304139-b6a71c49-72e8-4e60-a2c2-8a40ccefdbf5.png">
 <img width="748" alt="image" src="https://user-images.githubusercontent.com/81428296/210304204-7ef9f47d-bb4f-41c4-be60-a29bb2d33c29.png">
@@ -32,3 +35,14 @@ post link: https://stackoverflow.com/questions/31415242/single-quotes-with-chara
     let rs = str.index(str.startIndex, offsetBy: 3) // See how 3 is an Int
     let re = str.index(str.startIndex, offsetBy: 4) // See how 4 is an Int
     str.replaceSubrange(rs..<re, with: "B")
+    
+## 6. the syntax of split -- str.split(separator: "@")
+
+## 7. the syntax of join -- str.joined(separator: "@")
+
+## 8. need to cast the UInt8 to Int. They are in different types
+<img width="781" alt="image" src="https://user-images.githubusercontent.com/81428296/212446655-00691e47-aada-4ec8-aa54-ade13c141d7a.png">
+<img width="743" alt="image" src="https://user-images.githubusercontent.com/81428296/212446703-693e3f71-48e5-4e86-8729-b6c81fe5c60a.png">
+<img width="763" alt="image" src="https://user-images.githubusercontent.com/81428296/212446758-2c1a36c0-47e1-48bf-bb33-b10af63e2c97.png">
+
+
