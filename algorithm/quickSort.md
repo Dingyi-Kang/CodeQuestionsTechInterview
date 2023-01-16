@@ -19,8 +19,8 @@
 
         let pivot = nums[r]
         var left = l-1
-
-        for i in l...r{
+        //either l...r or l..<r will work
+        for i in l..<r{
             if nums[i] < pivot {
                 left += 1
                 (nums[left], nums[i]) = (nums[i], nums[left])
