@@ -6,6 +6,7 @@ Hence, take consider into Set and HashTable more often
 - [Common mistakes in Swift](mistakes.md)
   * [LinkedNode cannot be created as structrue due to "value tyep cannot cannot have a stored property that recursively contains it"](mistake/valueTypeCannotHaveTypeContainit.md)
   * [Class has no initializer](mistake/classHasNoInitializer.md)
+  * [Loop through a dictionary](mistake/loopThroughDict.md)
 - [Problems which need much string manipulation](string/)
   * [49.GroupAnagrams](string/49.GroupAnagrams.md)
 - [Basic Data Structure in Swift](DataStructure/)
