@@ -12,7 +12,7 @@ Hence, take consider into Set and HashTable more often
 - [Basic Data Structure in Swift](DataStructure/)
   * [Stack](DataStructure/Stack.md)
   * [Heap/Priority Queue](DataStructure/Heap.md)
-  
+  * [Dictionary - how use objects as keys; btw, Node is hashable in leetcode](DataStructure/dict.md)
 - [Basic Algorithm in Swift](algorithm/)
   * [QuickSort](algorithm/quickSort.md)
   
